@@ -8,6 +8,10 @@ import AskQuestion from './pages/AskQuestion/AskQuestion'
 import Tags  from "./pages/Tags/Tags"
 import Users from './pages/Users/Users'
 import UserProfile from './pages/UserProfile/UserProfile'
+import Product from './pages/Product/Product'
+import PaymentPage from './pages/PaymentPage'
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
+import LoginDetail from './pages/LoginHistoty/LoginDetail'
 
 const Allroutes = () => {
   return (
@@ -20,6 +24,10 @@ const Allroutes = () => {
     <Route exact path='/Tags' element={<Tags/>}/>
     <Route exact path='/Users' element={<Users/>}/>
     <Route exact path='Users/:id' element={<UserProfile/>}/>
+    <Route exact path='/Product' element={<Product/>}/>
+    <Route exact path='/Product/payment-success' element={<PaymentPage/>}/>
+    <Route exact path='/forgotPassword' element={<ForgotPassword/>}/>
+    <Route exact path='/loginHistory' element={<LoginDetail/>}/>
 
     </Routes>
   )  

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import{useDispatch} from 'react-redux'
-import{useNavigate} from 'react-router-dom'
+import{Link, useNavigate} from 'react-router-dom'
 import icon from '../../assest/icon.png'
 import AboutAuth from './AboutAuth'
 import './Auth.css'
 import {signup,login} from '../../actions/auth'
+import { getIpAddress, getLoginHistory } from '../../actions/LoginHistory'
 
 const Auth = () => {
     const [ isSignup,setIsSignup]=useState(false)
@@ -33,6 +34,8 @@ const dispatch =useDispatch()
        dispatch(signup({name,email,password},navigate));
     }else{
         dispatch(login({email,password},navigate));
+        dispatch(getLoginHistory());
+        dispatch(getIpAddress());
     }
    
  }
@@ -61,7 +64,7 @@ const dispatch =useDispatch()
                 <label htmlFor="password">
                     <div style={{display:"flex",justifyContent:"space-between"}}>
                     <h4>Password</h4>
-                    {!isSignup&& <p style={{fontSize:"13px" ,color:'#007ac6'}}> Forgot Password? </p>}
+                    {!isSignup&& <p style={{fontSize:"13px" ,color:'#007ac6'}}><Link to='/forgotPassword'> Forgot Password?</Link> </p>}
                     
                     </div>
                     

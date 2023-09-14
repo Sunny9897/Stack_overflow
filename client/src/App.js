@@ -9,6 +9,7 @@ import Allroutes from './Allroutes';
 import { fetchAllQuestions } from './actions/question';
 import { useEffect } from 'react';
 import { fetchAllUsers } from './actions/users'
+//import { chatBot } from './component/ChatBot/chatBot';
 
 function App() {
   const dispatch=useDispatch()

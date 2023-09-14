@@ -10,13 +10,24 @@
   "author": "sunny sharma",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "detect-browser": "^5.3.0",
     "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
+    "ip": "^2.0.0",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.0",
-    "nodemon": "^3.0.1"
+    "nodemailer": "^6.9.4",
+    "nodemon": "^3.0.1",
+    "openai": "^4.0.0",
+    "razorpay": "^2.9.2",
+    "user-agent": "^1.0.4",
+    "user-agents": "^1.0.1444",
+    "useragent": "^2.3.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

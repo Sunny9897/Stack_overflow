@@ -1,0 +1,55 @@
+.product-container-1{
+ background-color:  #f1e5bc;
+ border: solid  #fdf7e2 1px;
+ box-shadow: 3px 10px 25px rgb(0 0 0 / 5%),0px 20px 48px rgb(0 0 0 /5%),0 1px 4px rgb(0 0 0 / 10%);
+
+ border-radius: 3px;
+ width: calc(100% - 300px - 50px);
+ height: auto;
+ float: left;
+ align-items: center;
+ justify-content: center;
+}
+.product-container-1 h3{
+    margin-left: 18%;
+    margin-right: 19%;
+    justify-content: space-evenly;
+    border-bottom: solid black 1px;
+    font-weight: 500;
+    
+
+}
+ .radio-button{
+    padding: 5px 5px;
+    background-color: #fbf3d5;
+    border: solid #f1e5bc 1px;
+    border-radius: 2px;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+}
+label{
+    margin-left: 10px;
+}
+button{
+    padding: 10px;
+    background-color: #009dff;
+    border: solid 1px #009dff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 40%;
+    margin-bottom: 20px;
+
+  
+}
+button:hover{
+    background-color: #0086d8;    
+}
+
+#rzppaymentform :nth-child(0){
+    margin-left: 40%;
+}

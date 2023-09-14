@@ -24,11 +24,25 @@ export const updateProfile=async(req,res)=>{
     }
     try {
         const updatedProfile=await User.findByIdAndUpdate(_id,{$set:{'name':name,'about':about,'tags':tags}},{new:true})
-        res.status(200).json(updateProfile)
+        res.status(200).json(updatedProfile)
+       
       
 
     } catch (error) {
         res.status(405).json({message:error.message})
         
     }
+}
+export const getCurrentUser=async(req,res)=>{
+    const{id:_id}=req.params;
+    try {
+        
+    
+    const user= await User.findOne({_id:_id})
+    console.log(user)
+    res.status(200).json(user)
+} catch (error) {
+    res.status(405).json({message:error.message})
+        
+}
 }

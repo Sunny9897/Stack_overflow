@@ -84,3 +84,40 @@
     font-size: 13px;
     cursor: pointer;
 }
+.handle-reset-btn{
+    background-color: #1d9eee;
+    color:white ;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10%;
+    margin-left: 25%;
+}
+.reset-container{
+    margin-right: 25%;
+    width: 20%;
+    padding: 20px;
+    background-color: white;
+    border: solid 1px #0000003e;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%)
+    0 20 px 48 px rgb(0 0 0 / 5%)
+    0 1px 4px rgb(0 0 0 / 10%);
+
+}
+.reset-container h4{
+   
+    margin-left: 15%;
+    font-weight: 600;
+    font-size: 24px;
+}
+.reset-container input{
+    margin-left: 0%;
+    padding: 8px;
+    width: 90%;
+  font-size: 13px;
+}
+

@@ -14,10 +14,51 @@ export const signup=(authData,navigate)=>async(dispatch)=>{
 export const login=(authData,navigate)=>async(dispatch)=>{
     try {
         const{data}=await api.logIn(authData)
+        console.log(data);
         dispatch({type:'AUTH',data})
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('profile'))))
         navigate('/')
     } catch (error) {
         console.log(error)
+    }
+}
+
+export const updateDate=(id)=>async(dispatch)=>{
+    try {
+        const {data}=await api.updateDate(id);
+        dispatch({type:'UPDATE_DATE',payload:data})
+        
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const updatePack=(id)=>async(dispatch)=>{
+    try {
+        const {data}=await api.updatePack(id);
+        console.log(data)
+        dispatch({type:'UPDATE_PACK',payload:data})
+ 
+        
+    } catch (error) {
+        console.log(error)
+        
+    }
+}
+export const forgotPassword=(email)=>async(dispatch)=>{
+    try {
+        const {data}=await api.forgotPassword(email);
+        if(data===200){
+            alert('reset link has been to your mail.')
+        }else if(data===401){
+            alert("user does not exist")
+        }
+        else{
+            alert("spmething went wrong")
+        }
+        
+    } catch (error) {
+        console.log(error)
+        
     }
 }

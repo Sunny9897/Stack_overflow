@@ -1,0 +1,10 @@
+.payment-container{
+    margin-top: 100px;
+    justify-content: center;
+    margin-left: 20px;
+
+}
+.payment-container span{
+    color: rgb(58, 171, 247);
+    font-weight: 400;
+}

@@ -1,13 +1,21 @@
 import Questions from '../models/Questions.js';
+import User from '../models/auth.js'
 import mongoose from 'mongoose'
 
 export const AskQuestion=async (req,res)=>{
     const postQuestionData=req.body;
     const userId = req.userId;
+    
+    const user= await User.findOne({_id:userId});
+
+    user.limitUsed=user.limitUsed+1;
     const postQuestion=new Questions(postQuestionData);
     try {
         await postQuestion.save();
-        res.status(200).json("Posted a qusetion successfully")
+       const data= await User.findByIdAndUpdate(userId,{$set:{limitUsed:user.limitUsed}})
+     
+       
+        res.status(200).json("successfully")
     } catch (error) {
         console.log(error)
         res.status(409).json("Couldn't post a question")
