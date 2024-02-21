@@ -24,8 +24,8 @@ const Questiondetails = () => {
     const Navigate=useNavigate()
     const dispatch=useDispatch()
     const location=useLocation()
-   // const url='https://stack-overflow-ecom.onrender.com'
-   const url='http://localhost:3000'
+   const url='https://stack-overflow-ecom.onrender.com'
+   //const url='http://localhost:3000'
 const handlePostAns=(e,answerLength)=>{
 
     e.preventDefault()

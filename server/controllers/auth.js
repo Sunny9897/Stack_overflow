@@ -63,7 +63,7 @@ export const updateDate=async(req,res)=>{
     }
     try {
        const data= await users.findByIdAndUpdate(_id,{$set:{packJoinedOn:new Date().toISOString().slice(0,10),limit:limit,limitUsed:0}},{new:true})
-       console.log(data +"im updateDate")
+    //    console.log(data +"im updateDate")
         res.status(200).json(data)
 
         
@@ -75,7 +75,7 @@ export const updatePack =async(req,res)=>{
     const{id:_id}=req.params;
     try {
      const data =   await users.findByIdAndUpdate({_id:_id},{$set:{packEndOn:'2050-01-01',limit:1,limitUsed:0,currentPack:"pack-0"}})
-     console.log(data)
+     //console.log(data)
         res.status(200).json(data)
 
         
@@ -94,7 +94,9 @@ export const forgotPassword=async(req,res)=>{
         }
         const secret =process.env.JWT_SECRET+user.password;
         const token=jwt.sign({email:email,id:user._id},secret,{expiresIn:'5m'})
-        const link=`http://localhost:5000/user/resetPassword/${user._id}/${token}`
+       // const link=`http://localhost:5000/user/resetPassword/${user._id}/${token}`
+        const link=`http://stack-overflow-ecom.onrender.com/${user._id}/${token}`
+        
         console.log(link)
         console.log(process.env.email,process.env.emailPassword)
         var transporter=nodemailer.createTransport({

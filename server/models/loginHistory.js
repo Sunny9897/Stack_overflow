@@ -7,7 +7,8 @@ os:{type:String,default:null},
 device:{type:String,default:null},
 browser:{type:String,default:null},
 ipAddress:{type:String,default:null},
-loginAt :{type:String,default:null},
+lat :{type:Number,default:null},
+long:{type:Number,default:null},
 
 
 

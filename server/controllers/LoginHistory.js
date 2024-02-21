@@ -11,6 +11,7 @@ import useragent from 'useragent'
 
 
 export const getLoginHistory=async(req,res)=>{
+    const {email,lat,long}=req.body;
     try {
         
     
@@ -20,21 +21,23 @@ export const getLoginHistory=async(req,res)=>{
    const ua=useragent.parse(userAgentString);
    
     const Data={
-        email:'sunnysharma10082@gmail.com',
+        email:email,
         os:os.type(),
         device:userAgent.deviceCategory,
         browser:ua.family,
         ipAddress:ip.address(),
         loginOn:new Date(),
+        lat:lat,
+        long:long,
         
 
     }
     const historyData=new Histories(Data);
-    console.log(historyData);
+    
     historyData.save();
 
     
-    res.status(200).json({device:userAgent.deviceCategory, os:os.platform(), osType: os.type(), browser:ua.family, date:new Date()})
+    res.status(200).json(historyData)
     
 } catch (error) {
     res.status(400).json('error occured ')
@@ -42,13 +45,21 @@ export const getLoginHistory=async(req,res)=>{
 }
 
 }
-export const getIpAddress=async(req,res)=>{
+export const getHistory=async(req,res)=>{
+    const {email}=req.params;
+  
     try {
+        const loginHistory=await Histories.find({email:email});
+        // const  allHistory=[]
+        // loginHistory.forEach(history => {
+        //     allHistory.push({email: history.email, loginOn:history.loginOn,os: history.os,device:history.device,browser:history.browser,ipAddress:history.ipAddress,lat:history.lat,long:history.long})
+            
+        // });
+       
+    res.status(200).json(loginHistory);
         
     
-    const IP= ip.address();
-    console.log(IP)
-    res.status(200).json({ address:IP})
+    
 } catch (error) {
        res.status(400).json("some error occured")
 }

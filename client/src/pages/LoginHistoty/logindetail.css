@@ -1,0 +1,10 @@
+.product-container-1{
+    
+    box-shadow: 3px 3px 10px rgb(0 0 0 / 5%),-3px -3px 10px rgb(0 0 0 /5%);
+}
+.product-container-2{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    border-bottom: solid black 1px;
+}

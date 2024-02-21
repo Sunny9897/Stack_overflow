@@ -9,6 +9,7 @@ import questionRoutes from './routes/Questions.js'
 import answerRoutes from './routes/Answers.js'
 import paymentRoutes from './routes/Payment.js'
 import historyRoutes from './routes/LoginHistory.js'
+import chatRoutes from './routes/ChatBot.js'
 
 
 
@@ -31,6 +32,7 @@ app.use('/questions',questionRoutes)
 app.use('/answer',answerRoutes)
 app.use('/Product/payment-success',paymentRoutes)
 app.use('/data',historyRoutes)
+app.use('/post',chatRoutes)
 const PORT  = process.env.PORT|| 5000
 const DATABASE_URL=process.env.CONNECTION_URL
 mongoose.connect(DATABASE_URL,{useNewUrlParser:true,useUnifiedTopology:true})

@@ -1,6 +1,6 @@
 import axios from 'axios';
-//const API=axios.create({baseURL:"https://stack-overflow-ecom.onrender.com"})
-const API =axios.create({baseURL:"http://localhost:5000"})
+const API=axios.create({baseURL:"https://stack-overflow-ecom.onrender.com"})
+//const API =axios.create({baseURL:"http://localhost:5000"})
 API.interceptors.request.use((req)=>{
     if(localStorage.getItem('profile')){
         req.headers.authorization=`Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
@@ -30,5 +30,7 @@ export const updatedProfile=(id,updateData)=>API.patch(`/user/update/${id}`,upda
  export const updatePack=(id)=>API.patch(`/limit/pack/${id}`,id);
  export const getCurrentUser=(id)=>API.get(`/user/getCurrentUser/${id}`,id)
  export const forgotPassword=(email)=>API.post('/user/resetPassword',{email})
- export const getLoginHistory=()=>API.post('/data/loginHistory')
- export const getIpAddress=()=>API.post('/data/ipAddress')
+export const getLoginHistory=(email,lat,long)=>API.post('/data/loginHistory',{email,lat,long})
+export const getHistory=(email)=>API.get(`/data/getLoginHistory/${email}`,email)
+
+ 

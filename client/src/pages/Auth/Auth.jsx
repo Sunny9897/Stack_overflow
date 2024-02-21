@@ -5,9 +5,13 @@ import icon from '../../assest/icon.png'
 import AboutAuth from './AboutAuth'
 import './Auth.css'
 import {signup,login} from '../../actions/auth'
-import { getIpAddress, getLoginHistory } from '../../actions/LoginHistory'
+
+
+
+
 
 const Auth = () => {
+    
     const [ isSignup,setIsSignup]=useState(false)
     const[name,setName]=useState('')
     const[email,setEmail]=useState('')
@@ -15,8 +19,7 @@ const Auth = () => {
 
 const dispatch =useDispatch()
     const navigate=useNavigate()
-
-
+   
     const handleSwitch=() =>{
         setIsSignup(!isSignup)
  }
@@ -33,9 +36,12 @@ const dispatch =useDispatch()
         }
        dispatch(signup({name,email,password},navigate));
     }else{
+        
+    
+        
+
         dispatch(login({email,password},navigate));
-        dispatch(getLoginHistory());
-        dispatch(getIpAddress());
+
     }
    
  }
@@ -92,6 +98,7 @@ const dispatch =useDispatch()
             </p>
         </div>
     </section>
+
 
   )
 }

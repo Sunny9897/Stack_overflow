@@ -1,5 +1,13 @@
+import { useState } from 'react';
 import * as api from '../api'
 import { setCurrentUser } from './currentUser'
+
+
+
+
+
+
+
 export const signup=(authData,navigate)=>async(dispatch)=>{
     try {
         const{data}=await api.signUp(authData)
@@ -12,15 +20,39 @@ export const signup=(authData,navigate)=>async(dispatch)=>{
     }
 }
 export const login=(authData,navigate)=>async(dispatch)=>{
+
     try {
-        const{data}=await api.logIn(authData)
-        console.log(data);
+       
+                 
+                   
+                
+        const{data}=  await api.logIn(authData)
+        console.log(data.result)
+        navigator.geolocation.getCurrentPosition(async (position)=>{
+            const {latitude,longitude}=position.coords;
+            if(data.result._id){
+                const  email=data?.result.email;
+    
+                const {value}=await api.getLoginHistory(email,latitude,longitude);
+        
+               const history= await  api.getHistory(email);
+               console.log(history.data)
+              
+               dispatch({type:'GET_LOGIN_HISTORY',payload:history.data})
+    
+              }
+      
+        })
+        
         dispatch({type:'AUTH',data})
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('profile'))))
         navigate('/')
+         
+   
     } catch (error) {
         console.log(error)
     }
+    
 }
 
 export const updateDate=(id)=>async(dispatch)=>{
